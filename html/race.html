@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Race Registration!</h1>
+    <main>
+        <form action="/ionknow">
+            <section></section>
+            <p>
+                <label for="firstName">Firt Name</label>
+                <input type="text" name="fistName" id="firstName" required>
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" required>
+            </p>
+            <p>Select a race</p>
+            <p>
+                <input type="radio" id="5k" name="race" value="5k" required>
+                <label for="5k">Fun Run 5k</label><br>
+                <input type="radio" id="half" name="race" value="half" required>
+                <label for="half">Half Marathon</label><br>
+                <input type="radio" id="full" name="race" value="full" required>
+                <label for="full">Full Marathon</label>
+            </p>
+            <p>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="pass" minlength="6" maxlength="12" required>
+            </p>
+            <p>
+                <label for="age">Select Age Group</label>
+                <select name="age_group" id="age" required>
+                    <option value="junior">under 18</option>
+                    <option value="normal">over 18</option>
+                    <option value="senior">over 40</option>
+                    <option value="ancient">over 60</option>
+                </select>
+            </p>
+            <button>Register!</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>Comment</title>
+  </head>
+  <body>
+    <h1>Comment id: <%= comment.id %></h1>
+    <div class="container">
+      <h2><q><%= comment.comment %></q> - <b><%= comment.username %></b></h2>
+      <div class="btn-group" role="group" aria-label="...">
+        <button class="btn btn-outline-primary btn-sm">
+          <a href="/comments/<%= comment.id %>/edit">Edit</a>
+        </button>
+        <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
+          <button type="submit" class="btn btn-outline-secondary btn-sm">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+    <div>
+      <a href="/comments">Back to Index</a>
+    </div>
+  </body>
+</html>

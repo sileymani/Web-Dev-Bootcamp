@@ -1,0 +1,88 @@
+#main {
+    background-color: #232323;
+    margin: 0 auto;
+    width: 450px;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+#pingpong {
+    background-color: #232323;
+    margin: 0 auto;
+    width: 450px;
+    height: 250px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+#scoreSection {
+    margin-left: 12px;
+    margin-bottom: 15px;
+}
+
+.winner {
+    color: green
+}
+
+.loser {
+    color: red
+}
+
+.ecart {
+    color: orange
+}
+
+h1 {
+    font-size: 20px;
+    height: 1px;
+    text-align: center;
+}
+
+body {
+    margin-top: 40px;
+    background-color: #d4d1d1;
+    color: #ebebeb;
+    font-family: 'Press Start 2P', cursive;
+}
+
+button {
+    font-size: 15px;
+    background-color: #232323;
+    padding: 10px;
+    cursor: pointer;
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+    border: 0;
+}
+
+p {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    color: grey
+}
+
+#score {
+    color: #ffffff;
+    font-size: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 25px;
+}
+
+#reset {
+    float: right;
+    background-color: tomato;
+}
+
+#p1Bttn {
+    float: left;
+    background-color: skyblue;
+}
+
+#p2Bttn {
+    float: center;
+    background-color: greenyellow;
+}

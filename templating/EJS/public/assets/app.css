@@ -1,0 +1,12 @@
+/* #post {
+    width: 1px;
+    height: 1px;
+} */
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 400px;
+    height: auto;
+}
