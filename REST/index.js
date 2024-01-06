@@ -112,7 +112,7 @@ app.patch('/comments/:id', (req, res) => {
 app.delete('/comments/:id', (req, res) => {
     console.log("-------------------------------------------------------------")
     let { id } = req.params
-    console.log(`DELETE /comment/${id} resquest\nDestroy`.magenta)
+    console.log(`DELETE /comment/${id} request\nDestroy`.magenta)
     const comment = comments.find(c => c.id === id)
     if (comment) {
         const commentIndex = comments.indexOf(comment);
