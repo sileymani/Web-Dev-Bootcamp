@@ -8,6 +8,10 @@ mongoose.connect(`mongodb://127.0.0.1:27017/${DB}`)
     .then(() => console.log(`-------connected to ${DB} database-------`.bgGreen))
     .catch(err => console.log(err))
 
+Product.deleteMany({})
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+
 Product.insertMany([
     { name: 'Apples', price: 0.10, onSale: true, qty: 50, category: 'fruit' },
     { name: 'Croissants', price: 2.99, onSale: true, qty: 40, category: 'pastry' },

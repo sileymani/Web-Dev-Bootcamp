@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const path = require('path');
 const methodOverride = require('method-override');
 const colors = require('colors');
+//Models
+const Product = require('./models/product')
 
 
 const app = express()
@@ -18,8 +20,6 @@ app.use(methodOverride('_method'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-//Models
-const Product = require('./models/product')
 
 //Routes
 
