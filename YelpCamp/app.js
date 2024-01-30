@@ -4,11 +4,18 @@ const methodOverride = require('method-override')
 const colors = require('colors')
 const mongoose = require('mongoose')
 const Campground = require('./models/campground')
+const morgan = require('morgan')
 
 const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
+
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(methodOverride('_method'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(morgan('dev'))
 
 app.get('/', (req, res) => {
     console.log(`GET / request\n`.magenta)
@@ -38,7 +45,7 @@ app.get('/campgrounds/:id', async (req, res) => {
 
 //Create
 app.post('/campgrounds', async (req, res) => {
-    console.log(`¨POST /campgrounds request\nCreate\n`.magenta)
+    console.log(`POST /campgrounds request\nCreate\n`.magenta)
     const { title, location } = req.body
     const campground = new Campground({ title, location })
     await campground.save()
@@ -46,10 +53,10 @@ app.post('/campgrounds', async (req, res) => {
 })
 
 //Edit
-app.get('/campgrounds/edit', async (req, res) => {
+app.get('/campgrounds/:id/edit', async (req, res) => {
     let { id } = req.params;
     console.log(`GET /campgorunds/${id}/edit request\nEdit\n`.magenta)
-    let campground = await Campgorund.findById(id)
+    let campground = await Campground.findById(id)
     res.render('./campgrounds/edit.ejs', { campground });
 })
 
@@ -78,6 +85,11 @@ app.delete('/campgrounds/:id', async (req, res) => {
     res.redirect('/campgrounds')
 })
 
+//Not Found
+app.use((req, res) => {
+    console.log(`Not Found\n`.red)
+    res.status(404).send('Not Found')
+})
 
 //Server & Database
 app.listen(4000, () => {

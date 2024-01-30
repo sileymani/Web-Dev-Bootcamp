@@ -7,9 +7,11 @@
   </head>
   <body>
     <h1><%= campground.title %></h1>
-    <h2>title : <%= campground.title %></h2>
-    <h2>location : <%= campground.location %></h2>
-    <h2>description : <%= campground.description %></h2>
-    <h2>price : <%= campground.price %></h2>
+    <li>title : <%= campground.title %></li>
+    <li>location : <%= campground.location %></li>
+    <li>description : <%= campground.description %></li>
+    <li>price : <%= campground.price %></li>
+    <a href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+    <a href="/campgrounds">Back to Index</a>
   </body>
 </html>
