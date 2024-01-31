@@ -5,9 +5,11 @@ const colors = require('colors')
 const mongoose = require('mongoose')
 const Campground = require('./models/campground')
 const morgan = require('morgan')
+const engine = require('ejs-mate')
 
 const app = express()
 
+app.engine('ejs', engine)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
 
