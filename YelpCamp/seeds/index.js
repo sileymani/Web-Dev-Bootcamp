@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const axios = require('axios');
 const colors = require('colors')
 const Campground = require('../models/campground')
 const cities = require('./cities')
@@ -16,10 +17,16 @@ const seedDB = async () => {
     await Campground.deleteMany({})
 
     for (let i = 0; i < 50; i++) {
+        let imgURL = await axios.get('https://api.unsplash.com/photos/?client_id=BQBfLmdRVny4EE_C2thAbgRbU0VnAVbWy1sdThgwbr0&collections=563191')
+
+        // console.log(imgURL.data)
         const randCity = sample(cities)
         const camp = new Campground({
             location: `${randCity.city}, ${randCity.state}`,
-            title: `${sample(descriptors)} ${sample(places)}`
+            title: `${sample(descriptors)} ${sample(places)}`,
+            image: sample(imgURL.data).urls.small,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus iusto unde voluptatem totam perspiciatis id, quam in mollitia, dolores corporis dolorum consequuntur nulla inventore vel laborum molestiae suscipit voluptas.',
+            price: (Math.random() * 10).toFixed(2),
         })
         await camp.save()
     }

@@ -101,5 +101,5 @@ app.listen(4000, () => {
 const DB = 'yelpCamp';
 
 mongoose.connect(`mongodb://127.0.0.1:27017/${DB}`)
-    .then((res) => console.log(`-------connected to ${DB} database-------`.bgGreen))
+    .then((res) => console.log(`--------connected to ${DB} database-------`.bgGreen))
     .catch(err => console.log(err))
