@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>Products</title>
+  </head>
+  <body>
+    <h1>All Products</h1>
+    <form action="/products/f" method="post">
+      <select name="cat" id="category">
+        <option value="" disabled selected>filter by category</option>
+        <option value="fruit">Fruits</option>
+        <option value="vegetable">Vegetables</option>
+        <option value="Dairy">Dairy</option>
+        <option value="Pastry">Pastries</option>
+        <option value="Juice">Juice</option>
+      </select>
+      <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+    <ul>
+      <% for (product of products){ %>
+      <li>
+        <a href="/products/<%=product._id%>" class="link-underline-light">
+          <%=product.name%>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+    <a href="/products/new">Add product</a>
+  </body>
+</html>

@@ -48,9 +48,11 @@ app.get('/campgrounds/:id', async (req, res) => {
 //Create
 app.post('/campgrounds', async (req, res) => {
     console.log(`POST /campgrounds request\nCreate\n`.magenta)
-    const { title, location } = req.body
-    const campground = new Campground({ title, location })
-    await campground.save()
+    const { title, location, price, image, description } = req.body
+    // console.log(req.body)
+    const campground = new Campground({ title, location, price, description, image })
+    const newCamp = await campground.save()
+    console.log(newCamp)
     res.redirect('/campgrounds')
 })
 

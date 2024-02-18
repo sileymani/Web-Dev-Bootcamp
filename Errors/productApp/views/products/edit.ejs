@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>Edit <%= product.name %></title>
+  </head>
+  <body>
+    <h1>Editing <%= product.name %></h1>
+    <div class="container">
+      <form action="/products/<%= product.id %>?_method=PUT" method="post">
+        <label for="price">Price:</label>
+        <input
+          type="number"
+          name="price"
+          id="price"
+          step=".01"
+          placeholder="<%= product.price %>$"
+          value="<%= product.price %>"
+        />
+        <br />
+        <label for="onSale">On sale:</label>
+        <input type="checkbox" name="onSale" id="onSale" <%= product.onSale ? "checked":"" %> />
+        <br />
+        <label for="qty">Quantity:</label>
+        <input
+          type="number"
+          name="qty"
+          id="qty"
+          placeholder="<%= product.qty %>"
+          value="<%= product.qty %>"
+        />
+        <br />
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+          <option value="" disabled <%= !product.category ? "selected":"" %>>Choisir</option>
+          <option value="fruit" <%= product.category === "fruit" ? "selected":"" %></option>>Fruit</option>
+          <option value="Vegetable" <%= product.category === "vegetable" ? "selected":"" %>>Vegetable</option>
+          <option value="Dairy" <%= product.category === "dairy" ? "selected":"" %>>Dairy</option>
+          <option value="Pastry" <%= product.category === "pastry" ? "selected":"" %>>Pastry</option>
+          <option value="Juice" <%= product.category === "juice" ? "selected":"" %>>Juice</option>
+        </select>
+        <br />
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+      <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+        <button type="submit" class="btn btn-secondary">Delete</button>
+      </form>
+      <a href="/products/<%= product._id %>">Cancel</a>
+    </div>
+  </body>
+</html>
