@@ -3,7 +3,7 @@
 <div class="row">
   <h1 class="text-center">New Campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds" method="post">
+    <form action="/campgrounds" method="post" class="vform" novalidate>
       <div class="mb-2">
         <label for="title" class="form-label">Name</label>
         <input
@@ -36,6 +36,7 @@
             aria-describedby="basic-addon1"
             id="price"
             name="price"
+            required
           />
         </div>
       </div>
@@ -66,3 +67,31 @@
     </div>
   </div>
 </div>
+
+<script>
+  (function () {
+    "use strict";
+    window.addEventListener(
+      "load",
+      function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.getElementsByClassName("vform");
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      },
+      false
+    );
+  })();
+</script>

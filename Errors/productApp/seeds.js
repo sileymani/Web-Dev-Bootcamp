@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const colors = require('colors')
 
 const Product = require('./models/product')
-const DB = 'farmStand';
+const DB = 'farmStand2';
 
 mongoose.connect(`mongodb://127.0.0.1:27017/${DB}`)
     .then(() => console.log(`-------connected to ${DB} database-------`.bgGreen))
@@ -21,5 +21,8 @@ Product.insertMany([
     { name: 'Onions', price: 0.09, onSale: true, qty: 80, category: 'vegetable' },
     { name: 'Baklava', price: 2.99, onSale: true, qty: 40, category: 'pastry' },
 ])
-    .then(res => console.log(res))
+    .then(res => {
+        console.log(res)
+        mongoose.connection.close()
+    })
     .catch(err => console.log(err))
